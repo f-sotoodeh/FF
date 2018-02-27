@@ -1,6 +1,6 @@
 # FF-cli
 
-FF stands for two expressions. the first one is a noun, "Facila File Explorer", which is the name of this software. the second one is a dummy verb, "to Facilifind" which refers to the action of retrieving files using this method. Facilifinding is NOT like search and is NOT like traditional file exploring. It is somehow in between!
+**FF** stands for two expressions. the first one is a noun, "Facila File Explorer", which is the name of this software. the second one is a dummy verb, "to Facilifind" which refers to the action of retrieving files using this method. Facilifinding is NOT like search and is NOT like traditional file exploring. It is somehow in between!
 
 ## Repository (Repo)
 
@@ -38,6 +38,7 @@ add a file|`ff update`
 remove a file|`ff rm [id]`
 export a file|`ff save [id] [path]`
 revise ff_data of a file|`ff rvz [id]`
+review metadata of a file|`ff rvl [id]`
 
 ### Facilifinding Commands Structure
 
@@ -64,7 +65,7 @@ revise ff_data of a file|`ff rvz [id]`
     How|`hw`
     Which|`wc`
 
-    This command reveals a brief overview of all the files. This overview will contain all the values of all the properties of that **WH Lense**.
+    This command reveals a brief overview which will contain all the values of all the properties of that **WH Lens**.
 
 4. `ff [Wh] [Sth]`
 
@@ -72,7 +73,7 @@ revise ff_data of a file|`ff rvz [id]`
 
 5. `ff [Wh] --[Switch]`
 
-    This command reveals a brief overview of all the files. This overview will contain all the values of the property which is mentioned by `--[Switch]` or `-[S]`.
+    This command reveals a brief overview which will contain all the values of the property which is mentioned by `--[Switch]` or `-[S]`.
 
 6. `ff [Wh] --[Switch] [Sth]` or `ff [Wh] -[S] [Sth]`
 
@@ -80,18 +81,99 @@ revise ff_data of a file|`ff rvz [id]`
 
 #### WH lenses and their switches
 
-Lense|Abbr|Switches
----|:---:|---
-What|`wt`|Field - Subject
-When|`wn`|
-Where|`wr`|
-Who|`wh`|
-How|`hw`|
-Which|`wc`|
+Every WH Lens has some switches to directly access to details. The way that details are defined and work are depending to **Modules** which are active in every lens. Every module add a set of **switches** to its lens.
+
+For example, there is a module, named as **rl**, which work in **When**, **Where**, and **Who** lenses and describe how the item relates to our intended file.
+
+##### Switches of Relation
+
+Module|`[-S]`|`[-Switch]`
+---|---|---
+rl|`-ra`|`--accessed`
+rl|`-rl`|`--modified`
+rl|`-rc`|`--created`
+rl|`-rr`|`--related`
+rl|`-rt`|`--tagged`
+
+##### Switches of Elements
 
 1. **What** or `wt`
+
+    `[-S]`|`[--Switch]`|Description
+    ---|---|---
+    `-f`|`--field`|
+    `-s`|`--subject`|
+    `-k`|`--keyword`|
+
 2. **When** or `wn`
+
+    `[-S]`|`[--Switch]`|Description
+    ---|---|---
+    `-cl`|`--calendar`|To change calendar type, the default is *Gregorian*
+    `-y`|`--year`|
+    `-m`|`--month`|
+    `-d`|`--day`|
+    `-h`|`--hour`|
+    `-i`|`--minute`|
+    `-s`|`--second`|
+
+    _All other calendar types can be define as modules._
+
 3. **Where** or `wr`
+
+    Module|`[-S]`|`[--Switch]`|Description
+    ---|---|---|---
+    GPS|`-l`|`--latlong`|Coordinates based on latitude and longitude
+    txaddr|`-t`|`--text`|Textual address
+    txaddr|`-a`|`--area`|An area like a country or a city
+
 4. **Who** or `wh`
+
+    Module|`[-S]`|`[--Switch]`|Description
+    ---|---|---|---
+    None|`-i`|`--id`|
+    Name|`-np`|`--prefix`|
+    Name|`-nf`|`--firstname`|
+    Name|`-nm`|`--middlename`|
+    Name|`-nl`|`--lastname`|
+    Name|`-ns`|`--suffix`|
+    Name|`-nk`|`-nickname-`|
+    Name|`-nt`|`-title-`|
+    Name|`-nn`|`--name`|fullname or part of it
+    Contact|`-ce`|`--email`|
+    Contact|`-ct`|`--phone`|
+    contact|`-ca`|`--address`|
+    Social|`-sn`|`--socialnetwork`|
+    Social|`-sd`|`--socialdata`|
+    Profession|`...`|`...`|
+    Relations|`-rr`|`--role`|
+    Relations|`-rp`|`--people`|
+    Info|`-ib`|`--birthdate`|
+    Info|`...`|`...`|
+    Album|`-aa`|`--avatar`|
+    Album|`...`|`...`|
+    ...|`...`|`...`|...
+
+    _Details that are accessilbe in WHO Lens are dependent to active modules._
+
 5. **How** or `hw`
+
+    `[-S]`|`[--Switch]`|Description
+    ---|---|---
+    `-r`|`--rate`|
+
 6. **Which** or `wc`
+
+    This lense is *reserved* for working with traditional directoris. I do not intend to use it in first version.
+
+### Nested Commands
+
+`[Command_1] ~([Command_2])`
+
+### Logical oprators
+
+Command|Logic
+---|---
+`?and` or `?&`|and
+`?or` or `?|`|or
+`?not` or `?!`|not
