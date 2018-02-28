@@ -107,7 +107,7 @@ _NOTE:_ The lens `hw` is not a dependent lens like other. In fact, it is a helpe
     `i`|minute
     `s`|second
 
-    _All other calendar types can be define as modules._
+    _All other calendar types can be defined as modules._
 
 3. **Where** or `wr`
 
@@ -193,8 +193,8 @@ Operator|Description
 
 #### Logical operators
 
-Command|Logic
----|---
+Operator|Logic
+:---:|---
 `?and`|and
 `?or`|or
 `?not`|not
