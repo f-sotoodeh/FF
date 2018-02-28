@@ -180,14 +180,13 @@ _NOTE:_ The lens `hw` is not a dependent lens like other. In fact, it is a helpe
 
 `[Command_1] $([Command_2])`
 
-For example, `ff rvl`
-
 ### Operators
 
 #### General operators
 
 Operator|Description
 :---:|---
+`~`|using a filter
 `$`|run
 `:`|using filters of a module
 `.`|going through  a set
