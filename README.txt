@@ -16,7 +16,7 @@ There are just a few basic actions
 
 3. __Modifying the metadata of a file__
 
-    Before modifying the metadata of a file user should find the file then they can copy the metadata to a metadata file by running the command `ff rvz`. Afterward, the user can modify the newly created metadata file and run `ff update` to add changes to the database.
+    Before modifying the metadata of a file user should find the file then they can copy the metadata to a metadata file by running the command `ff rvz`. Afterward, user can modify the newly created metadata file and run `ff update` to add changes to the database.
 
 4. __Removing a file__
 
